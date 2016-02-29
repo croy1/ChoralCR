@@ -23,5 +23,10 @@ public class CUSTOMER
     {
         //unpack string of row data into fields
         String[] rowItems = dataItems.split(",");
+        CustomerID = rowItems [0];
+        TicketID = (rowItems[1]).charAt(0);
+        SeatSelection = (rowItems[1]);
+        NoOfTickets = Integer.parseInt(rowItems[2]);
+        method = (rowItems[3]).charAt(0);
     }
 }
