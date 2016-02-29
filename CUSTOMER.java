@@ -8,7 +8,7 @@ public class CUSTOMER
     private float total;
     private char night;
     private String SeatSelection;
-    
+
     public CUSTOMER()
     {
         //constructor
@@ -18,7 +18,7 @@ public class CUSTOMER
         NoOfTickets = 0;
         method = 0;
     }
-    
+
     public void readCustomerDetails (String dataItems)
     {
         //unpack string of row data into fields
@@ -29,18 +29,33 @@ public class CUSTOMER
         NoOfTickets = Integer.parseInt(rowItems[2]);
         method = (rowItems[3]).charAt(0);
     }
-    
+
     public String writeDetails()
     {
-      //join up data into a string to output as a row
-      String customerData = "";
-      customerData = customerData.concat(CustomerID);
-      customerData = customerData.concat(",");
-      customerData = customerData.concat(SeatSelection);
-      customerData = customerData.concat(",");
-      customerData = customerData.concat(Integer.toString(NoOfTickets));
-      customerData = customerData.concat(",");
-      customerData = customerData.concat(Character.toString(method));
-      return customerData;  
+        //join up data into a string to output as a row
+        String customerData = "";
+        customerData = customerData.concat(CustomerID);
+        customerData = customerData.concat(",");
+        customerData = customerData.concat(SeatSelection);
+        customerData = customerData.concat(",");
+        customerData = customerData.concat(Integer.toString(NoOfTickets));
+        customerData = customerData.concat(",");
+        customerData = customerData.concat(Character.toString(method));
+        return customerData;  
+    }
+
+    public char getNight()
+    {
+        return TicketID;
+    }
+    
+    public int getNoOfTickets()
+    {
+        return NoOfTickets;
+    }
+    
+    public char getmethod()
+    {
+        return method;
     }
 }
