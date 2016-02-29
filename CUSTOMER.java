@@ -29,4 +29,18 @@ public class CUSTOMER
         NoOfTickets = Integer.parseInt(rowItems[2]);
         method = (rowItems[3]).charAt(0);
     }
+    
+    public String writeDetails()
+    {
+      //join up data into a string to output as a row
+      String customerData = "";
+      customerData = customerData.concat(CustomerID);
+      customerData = customerData.concat(",");
+      customerData = customerData.concat(SeatSelection);
+      customerData = customerData.concat(",");
+      customerData = customerData.concat(Integer.toString(NoOfTickets));
+      customerData = customerData.concat(",");
+      customerData = customerData.concat(Character.toString(method));
+      return customerData;  
+    }
 }
