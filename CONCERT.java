@@ -32,6 +32,15 @@ public class CONCERT
         String[] dataRows = customerFile.readCSVtable();
         NoOfCustomers = dataRows.length;
         System.out.println("***" + NoOfCustomers + "rows read.\n\n");
+        
+        //prepare array for new customers
+        customerList = new CUSTOMER[NoOfCustomers];
+        //create member objects and copy data
+        for (int i = 0; i< NoOfCustomers; i++) {
+            customerList[i] = new CUSTOMER();
+            //adjust to skip headings
+            customerList[i].readCustomerDetails (dataRows[i+1]);
+        }
     }
     
 }
