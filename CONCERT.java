@@ -17,32 +17,21 @@ public class CONCERT
     }
     
     //top level algorithm
-    public void processCustomers()
+    public void processCustomers() throws IOException
     {
         setupcustomerList();
-        CountMethod();
-        CountTotal();
-        ShowYear();
-        SaveFridayNightFile();
     }
     
-    public void setupcustomerList()
+    public void setupcustomerList() throws IOException
     {
+        //First user message
+        System.out.println("Concert Sales: Update on customer");
+        System.out.println("*** Preparing to read data file ***");
+        
+        //read file, fetch data as string array containg the rows
+        String[] dataRows = customerFile.readCSVtable();
+        NoOfCustomers = dataRows.length;
+        System.out.println("***" + NoOfCustomers + "rows read.\n\n");
     }
     
-    public void CountMethod()
-    {
-    }
-    
-    public void CountTotal()
-    {
-    }
-    
-    public void ShowYear()
-    {
-    }
-    
-    public void SaveFridayNightFile()
-    {
-    }
 }
