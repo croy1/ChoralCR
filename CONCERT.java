@@ -63,6 +63,9 @@ public class CONCERT
             {
                 countW = countW +1;
             }
+            if (countS > countW)
+            {
+            }
         }
     }
 }
