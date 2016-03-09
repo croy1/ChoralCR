@@ -21,6 +21,9 @@ public class CONCERT
     {
         setupcustomerList();
         countmethod();
+        showyear();
+        counttotal();
+        fridaynightfile();
     }
 
     public void setupcustomerList() throws IOException
@@ -63,8 +66,17 @@ public class CONCERT
             {
                 countW = countW +1;
             }
-            if (countS > countW)
+            if (countS < countW)
             {
+                System.out.println("\n Most customers bought their tickets on the website");
+            }
+            else if (countS > countW)
+            {
+                System.out.println("\n Most customers bought their tickets at school");
+            }
+            else
+            {
+                System.out.println("\n The same anount of people bought tickets in school and on the website");
             }
         }
     }
