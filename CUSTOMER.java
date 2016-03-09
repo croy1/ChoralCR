@@ -58,4 +58,12 @@ public class CUSTOMER
     {
         return method;
     }
+    
+    public void displayDetails()
+    {
+        //output basic details
+        System.out.print("The most popular method of sales is");
+        System.out.print("The total money raised for the charity");
+        System.out.println();
+    }
 }

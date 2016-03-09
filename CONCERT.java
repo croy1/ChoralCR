@@ -54,7 +54,15 @@ public class CONCERT
         //loop
         for (int i = 0; i < NoOfCustomers; i++)
         {
-            
+            //decide if current item
+            if (customerList[i].getmethod() =='S')
+            {
+                countS = countS +1;
+            }
+            else if (customerList[i].getmethod()=='W')
+            {
+                countW = countW +1;
+            }
         }
     }
 }
