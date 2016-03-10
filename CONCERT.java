@@ -21,9 +21,9 @@ public class CONCERT
     {
         setupcustomerList();
         countmethod();
-        showyear();
         counttotal();
-        fridaynightfile();
+        showyear();
+        fridayfile();
     }
 
     public void setupcustomerList() throws IOException
@@ -80,4 +80,27 @@ public class CONCERT
             }
         }
     }
+
+    public void counttotal()
+    {
+        float total = 0.00f;
+        for (int i = 0; i < NoOfCustomers; i++)
+        { if (customerList[i].getNight() == 'F')
+            {
+                total = total + customerList[i].getNoOfTickets()*10;
+            }
+            {
+            }
+        }
+    }
+    
+    public void showyear()
+    {
+    }
+    
+    public void fridayfile()
+    {
+    }
+
+       
 }
