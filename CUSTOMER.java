@@ -17,6 +17,7 @@ public class CUSTOMER
         TicketID = 0;
         NoOfTickets = 0;
         method = 0;
+        
     }
 
     public void readCustomerDetails (String dataItems)

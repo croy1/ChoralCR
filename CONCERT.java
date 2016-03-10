@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
 import java.io.*;
+import java.util.Calendar;
 public class CONCERT
 {
 
@@ -9,11 +10,14 @@ public class CONCERT
     int NoOfCustomers;
     FILEREADCSV customerFile;
     FILEREADCSV resultFile;
+    private int year;
+   
 
     public CONCERT()
     {
         customerFile = new FILEREADCSV();
         resultFile = new FILEREADCSV();
+        year= 0;
     }
 
     //top level algorithm
@@ -96,6 +100,7 @@ public class CONCERT
     
     public void showyear()
     {
+        year = Calendar.getInstance().get(Calendar.YEAR);
     }
     
     public void fridayfile()
