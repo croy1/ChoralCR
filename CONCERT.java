@@ -9,16 +9,15 @@ public class CONCERT
     //number of customers to be calculated after reading
     int NoOfCustomers;
     FILEREADCSV customerFile;
-    FILEREADCSV resultFile;
-    
+    FILEWRITECSV resultFile;
+
     private String year;
-    public CONCERT()
+    public CONCERT() throws IOException
     {
         customerFile = new FILEREADCSV();
-        resultFile = new FILEREADCSV();
-        
-    }
+        resultFile = new FILEWRITECSV();
 
+    }
     //top level algorithm
     public void processCustomers() throws IOException
     {
@@ -71,17 +70,17 @@ public class CONCERT
             }
         }
         if (countS < countW)
-            {
-                System.out.println("\n Most customers bought their tickets on the website");
-            }
-            else if (countS > countW)
-            {
-                System.out.println("\n Most customers bought their tickets at school");
-            }
-            else
-            {
-                System.out.println("\n The same anount of people bought tickets in school and on the website");
-            }
+        {
+            System.out.println("\n Most customers bought their tickets on the website");
+        }
+        else if (countS > countW)
+        {
+            System.out.println("\n Most customers bought their tickets at school");
+        }
+        else
+        {
+            System.out.println("\n The same anount of people bought tickets in school and on the website");
+        }
     }
 
     public void counttotal()
@@ -100,11 +99,28 @@ public class CONCERT
 
     public void showyear()
     {
-          System.out.println(Year.now().getValue() + "\n");
+        System.out.println(Year.now().getValue() + "\n");
     }
 
     public void fridayfile() throws IOException
     {
+        String filecontent = "";
+        int count = 0;
+        for (int i = 0; i < NoOfCustomers; i++)
+        {
+            if (customerList[i].getNight() == 'F')
+            {
+                count = count + 1;
+            }
+            if (count>1)
+                {
+                    filecontent = filecontent.concat("\n");
+                }
+                filecontent = filecontent.concat(customerList[i].writeDetails());
+        }
+        System.out.println("***Preparing to write data file.");
+        resultFile.writeCSVtable(filecontent);
+        System.out.print("***File written and closed.");
     }
-
+    
 }
