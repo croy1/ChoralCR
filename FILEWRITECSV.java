@@ -5,11 +5,7 @@ public class FILEWRITECSV
    // file object to open, read and close a file
    private FileWriter fWriter;     // an object to fetch data from file
 
-
-
    // (no class constructor, just use default constructor)
-
-
 
    public void writeCSVtable(String outBuffer) throws IOException
    {

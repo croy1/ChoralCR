@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 import java.io.*;
-import java.util.Calendar;
+import java.time.*;
 public class CONCERT
 {
 
@@ -10,14 +10,13 @@ public class CONCERT
     int NoOfCustomers;
     FILEREADCSV customerFile;
     FILEREADCSV resultFile;
-    private int year;
-   
-
+    
+    private String year;
     public CONCERT()
     {
         customerFile = new FILEREADCSV();
         resultFile = new FILEREADCSV();
-        year= 0;
+        
     }
 
     //top level algorithm
@@ -70,7 +69,8 @@ public class CONCERT
             {
                 countW = countW +1;
             }
-            if (countS < countW)
+        }
+        if (countS < countW)
             {
                 System.out.println("\n Most customers bought their tickets on the website");
             }
@@ -82,7 +82,6 @@ public class CONCERT
             {
                 System.out.println("\n The same anount of people bought tickets in school and on the website");
             }
-        }
     }
 
     public void counttotal()
@@ -93,19 +92,19 @@ public class CONCERT
             {
                 total = total + customerList[i].getNoOfTickets()*10;
             }
-            {
-            }
+        }
+        {
+            System.out.print("The total money raised for charity is £");
         }
     }
-    
+
     public void showyear()
     {
-        year = Calendar.getInstance().get(Calendar.YEAR);
+          System.out.println(Year.now().getValue() + "\n");
     }
-    
-    public void fridayfile()
+
+    public void fridayfile() throws IOException
     {
     }
 
-       
 }
