@@ -21,11 +21,11 @@ public class CONCERT
     //top level algorithm
     public void processCustomers() throws IOException
     {
-        setupcustomerList();
+        showyear();
         countmethod();
         counttotal();
-        showyear();
         fridayfile();
+        setupcustomerList();
     }
 
     public void setupcustomerList() throws IOException
@@ -52,7 +52,6 @@ public class CONCERT
     public void countmethod()
     {
         //user message
-        System.out.println("The method that was used the most was");
         //start the count of the methods
         int countW = 0;
         int countS = 0;
@@ -89,11 +88,11 @@ public class CONCERT
         for (int i = 0; i < NoOfCustomers; i++)
         { if (customerList[i].getNight() == 'W')
             {
-                total = total + customerList[i].getNoOfTickets()*10;
+                total = total + customerList[i].getNoOfTickets()*5;
             }
             if (customerList[i].getNight() == 'T')
             {
-                total = total + customerList[i].getNoOfTickets()*10;
+                total = total + customerList[i].getNoOfTickets()*5;
             }
             if (customerList[i].getNight() == 'F')
             {
@@ -101,13 +100,13 @@ public class CONCERT
             }
         }
         {
-            System.out.print("The total money raised for charity is £" + total);
+            System.out.println("The total money raised for charity is £" + total);
         }
     }
 
     public void showyear()
     {
-        System.out.println(Year.now().getValue() + "\n");
+        System.out.println("\n Essell Academy Choral Shield " + Year.now().getValue());
     }
 
     public void fridayfile() throws IOException
@@ -117,15 +116,14 @@ public class CONCERT
         for (int i = 0; i < NoOfCustomers; i++)
         {
             if (customerList[i].getNight() == 'F')
-            {
-                count = count + 1;
-            }
-            if (count>1)
+          {
+             count = count + 1;
+             if (count>1)
             {
                 filecontent = filecontent.concat("\n");
             }
-
             filecontent = filecontent.concat(customerList[i].writeDetails());
+          }
         } 
         System.out.println("***Preparing to write data file.");
         resultFile.writeCSVtable(filecontent);
