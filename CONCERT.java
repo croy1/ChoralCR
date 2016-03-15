@@ -87,13 +87,21 @@ public class CONCERT
     {
         float total = 0.00f;
         for (int i = 0; i < NoOfCustomers; i++)
-        { if (customerList[i].getNight() == 'F')
+        { if (customerList[i].getNight() == 'W')
+            {
+                total = total + customerList[i].getNoOfTickets()*10;
+            }
+            if (customerList[i].getNight() == 'T')
+            {
+                total = total + customerList[i].getNoOfTickets()*10;
+            }
+            if (customerList[i].getNight() == 'F')
             {
                 total = total + customerList[i].getNoOfTickets()*10;
             }
         }
         {
-            System.out.print("The total money raised for charity is £");
+            System.out.print("The total money raised for charity is £" + total);
         }
     }
 
@@ -113,14 +121,15 @@ public class CONCERT
                 count = count + 1;
             }
             if (count>1)
-                {
-                    filecontent = filecontent.concat("\n");
-                }
-                filecontent = filecontent.concat(customerList[i].writeDetails());
-        }
+            {
+                filecontent = filecontent.concat("\n");
+            }
+
+            filecontent = filecontent.concat(customerList[i].writeDetails());
+        } 
         System.out.println("***Preparing to write data file.");
         resultFile.writeCSVtable(filecontent);
         System.out.print("***File written and closed.");
     }
-    
+
 }
